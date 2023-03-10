@@ -1,4 +1,4 @@
-# Vue 3 + TypeScript + Vit
+# Vue 3 + TypeScript + Vite
 1. 装依赖
 npm install
 
