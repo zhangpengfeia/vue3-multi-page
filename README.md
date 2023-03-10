@@ -7,8 +7,6 @@ npm install
 npm run proname:描述
 
 3. 运行
-npm run start
-> http://localhost:5000/pages/项目名称
 单独运行多页面
 npm run start --pro=proname
 
