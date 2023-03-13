@@ -1,5 +1,8 @@
-# Vue 3 + TypeScript + Vit
-## 创建页面
+# Vue 3 + TypeScript + Vite
+1. 装依赖
+npm install
+
+2. 创建页面
 命令创建多页面
 npm run proname:描述
 
@@ -10,7 +13,7 @@ npm run start
 单独运行多页面
 npm run start --pro=proname // proname 项目名称
 
-## 打包
+4. 打包
 现在只能单独打包
 npm run build --pro=proname // proname 项目名称
 
