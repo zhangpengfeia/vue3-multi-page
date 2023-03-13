@@ -1,11 +1,11 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-13 16:00:38
  * @LastEditTime: 2023-02-26 10:13:19
  */
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import type { App } from 'vue'
 // import { Layout, getParentLayout } from '@/utils/routerHelper'
 
@@ -21,24 +21,20 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
   // },
   // 登录
   {
-    path: "/login",
-    name: "login",
+    path: '/login',
+    name: 'login',
     component: () => import('../views/Login/login.vue'),
-    meta: {
-    }
-  },
+    meta: {}
+  }
   // 首页
-
 ]
 
-export const asyncRouterMap: AppRouteRecordRaw[] = [
-  
- ]
+export const asyncRouterMap: AppRouteRecordRaw[] = []
 
 const router = createRouter({
   history: createWebHistory(),
   routes: constantRouterMap as RouteRecordRaw[],
-  strict: true,
+  strict: true
 })
 
 export const setupRouter = (app: App<Element>) => {

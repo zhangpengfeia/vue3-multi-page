@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-13 15:09:58
@@ -37,7 +37,7 @@ const setupAll = async () => {
   setupElementPlus(app)
 
   setupRouter(app)
-  
+
   app.mount('#app')
 }
 

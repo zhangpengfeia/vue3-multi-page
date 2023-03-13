@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-25 10:27:52
@@ -15,7 +15,6 @@ export const underlineToHump = (str: string): string => {
     return letter.toUpperCase()
   })
 }
-
 
 /**
  * 查找数组对象的某个下标

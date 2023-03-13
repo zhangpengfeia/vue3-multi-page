@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-</script>
+<script setup lang="ts"></script>
 
-<template>
-  <div>详情111</div>
-</template>
-
-<style lang="less" scoped>
-</style>
+<template> del </template>

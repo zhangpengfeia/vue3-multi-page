@@ -10,7 +10,10 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "baseUrl": ".",
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
@@ -22,15 +25,25 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "types": [
-      "vite/client",
       "element-plus/global",
-      "vite-plugin-svg-icons/client",
     ],
-    "typeRoots": ["./node_modules/@types/", "./types"]
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./types"
+    ]
   },
-  "include": ["src/**/*", "types/**/*.d.ts", "mock/**/*.ts"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "src/**/*",
+    "types/**/*.d.ts",
+    "mock/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

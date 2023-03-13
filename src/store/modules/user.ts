@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-14 15:57:09
@@ -14,45 +14,45 @@ type roles = {
 }
 
 interface User {
-  token: String,
+  token: String
   roles: roles[]
 }
 
 export const useInfo = defineStore('user', {
-  state:():User => ({
-    token: "store user",
+  state: (): User => ({
+    token: 'store user',
     roles: [
       {
-        name:"zhang",
-        role: ['admin'],
+        name: 'zhang',
+        role: ['admin']
       },
       {
-        name:"li",
-        role: ['edit'],
+        name: 'li',
+        role: ['edit']
       },
       {
-        name:"wang",
-        role: ['tourist'],
+        name: 'wang',
+        role: ['tourist']
       },
       {
-        name:"ma",
-        role: ['admin', 'edit'],
-      },
+        name: 'ma',
+        role: ['admin', 'edit']
+      }
     ]
   }),
   getters: {
-    getToken():String {
+    getToken(): String {
       return this.token
     },
-    getRoles():roles[] {
+    getRoles(): roles[] {
       return this.roles
-    },
+    }
   },
   actions: {
-    setToken(t:String) {
+    setToken(t: String) {
       this.token = t
     },
-    setRoles(t:roles[]) {
+    setRoles(t: roles[]) {
       this.roles = t
     }
   }

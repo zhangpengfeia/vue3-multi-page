@@ -1,12 +1,12 @@
 <!--
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-25 09:20:00
  * @LastEditTime: 2023-02-25 09:29:54
 -->
 <script setup lang="ts">
-import {  onMounted } from 'vue'
+import { onMounted } from 'vue'
 // import { propTypes } from '@/utils/propTypes'
 import { ElConfigProvider } from 'element-plus'
 // import { useLocaleStore } from '@/store/modules/locale'
@@ -62,7 +62,7 @@ watch(
 
 <template>
   <!-- <ElConfigProvider
-            
+
               :locale="currentLocale.elLocale"
               :message="{ max: 1 }"
               :size="size"

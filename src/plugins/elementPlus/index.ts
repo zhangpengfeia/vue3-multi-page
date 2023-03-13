@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-13 15:37:21
@@ -11,7 +11,6 @@ import type { App } from 'vue'
 import { ElLoading, ElScrollbar } from 'element-plus'
 import 'element-plus/dist/index.css'
 import ElementPlus from 'element-plus'
-
 
 const plugins = [ElLoading]
 

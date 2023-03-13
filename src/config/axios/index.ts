@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-14 08:54:49
@@ -7,12 +7,10 @@
  */
 import { service } from './service'
 
-import {config} from './config'
+import { config } from './config'
 
-
-
-const request = (options:any) => {
-  const { url, method, headersType,data } = options
+const request = (options: any) => {
+  const { url, method, headersType, data } = options
   console.log(options)
   return service({
     url,
@@ -24,12 +22,11 @@ const request = (options:any) => {
   })
 }
 
-
 export default {
-  get: <T = any>(options:any) => {
-    return request({method: 'get', ...options}) as unknown as T
+  get: <T = any>(options: any) => {
+    return request({ method: 'get', ...options }) as unknown as T
   },
-  post: <T = any>(options:any) => {
-    return request({method: 'post', ...options}) as unknown as T
+  post: <T = any>(options: any) => {
+    return request({ method: 'post', ...options }) as unknown as T
   }
 }

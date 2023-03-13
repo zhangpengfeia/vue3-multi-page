@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-14 16:31:19
@@ -7,27 +7,26 @@
  */
 const config: {
   base_url: {
-   base: String,
-   dev: String,
-   test: String,
-   pro: String
- },
- request_timeout: Number,
- default_headers: String
+    base: String
+    dev: String
+    test: String
+    pro: String
+  }
+  request_timeout: Number
+  default_headers: String
 } = {
-
   base_url: {
-     // 接口前缀
+    // 接口前缀
     base: '/api',
 
     // 开发
-    dev: "/api",
+    dev: '/api',
 
     // 测试
-    test: "",
+    test: '',
 
     // 生产
-    pro: ""
+    pro: ''
   },
   // 超时
   request_timeout: 5000,

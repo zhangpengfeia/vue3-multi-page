@@ -5,14 +5,14 @@ npm run proname:描述
 
 ## 运行
 npm run start
-> http://localhost:5000/pages/项目名称
+> http://localhost:5000/pages/项目名称/index.html
 
 单独运行多页面
-npm run start --pro=proname
+npm run start --pro=proname // proname 项目名称
 
 ## 打包
 现在只能单独打包
-npm run build --pro=proname
+npm run build --pro=proname // proname 项目名称
 
 打包后目录
 ```js

@@ -1,14 +1,13 @@
 <!--
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-13 15:09:58
  * @LastEditTime: 2023-02-26 10:14:56
 -->
 <template>
-  pro1
   <ConfigGlobal>
-    <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''"></RouterView>
+    <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''" />
   </ConfigGlobal>
 </template>
 

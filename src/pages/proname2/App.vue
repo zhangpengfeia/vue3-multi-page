@@ -8,7 +8,7 @@
 <template>
   pro2
   <ConfigGlobal>
-    <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''"></RouterView>
+    <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''" />
   </ConfigGlobal>
 </template>
 

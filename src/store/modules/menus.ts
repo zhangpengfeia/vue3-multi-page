@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-15 08:34:38
@@ -17,20 +17,16 @@ interface List {
 }
 
 export const menusList = defineStore('menus', {
-  state:():List => ({
-    navList: [
-      { id: 2 },
-      { id: 3 },
-      { id: 4 }
-    ]
+  state: (): List => ({
+    navList: [{ id: 2 }, { id: 3 }, { id: 4 }]
   }),
   getters: {
-    getNavList():nav {
+    getNavList(): nav {
       return this.navList
     }
   },
   actions: {
-    setNavList(t:nav) {
+    setNavList(t: nav) {
       this.navList = t
     }
   }
