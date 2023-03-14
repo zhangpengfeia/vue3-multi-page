@@ -21,12 +21,6 @@ import { setupStore } from '../../store';
 // 路由
 import { setupRouter } from './router';
 
-
-// import 'virtual:windi.css'
-
-// import 'virtual:windi-devtools'
-
-
 // 引入动画
 import '@/plugins/animate.css';
 
@@ -35,6 +29,8 @@ import '@/styles/index.less';
 
 // 导入全局的svg图标
 import '@/plugins/svgIcon';
+
+import './permission'
 
 // 创建实例
 const setupAll = async () => {

@@ -16,11 +16,16 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/modules/app'
 import { ConfigGlobal } from '@/components/ConfigGlobal'
 import { useDesign } from '@/hooks/web/useDesign'
+import { useRouterMapS } from '@/store/modules/routes'
+import { constantRouterMap } from './router'
+
 const appStore = useAppStore()
 const greyMode = computed(() => appStore.getGreyMode)
 const { getPrefixCls } = useDesign()
-
 const prefixCls = getPrefixCls('app')
+// 插入
+const routesStore = useRouterMapS()
+routesStore.setConstantRouterMapS(constantRouterMap)
 </script>
 <style lang="less" scoped></style>
 

@@ -1,12 +1,11 @@
 <!--
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-13 15:09:58
  * @LastEditTime: 2023-02-26 10:14:56
 -->
 <template>
-  pro2
   <ConfigGlobal>
     <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''" />
   </ConfigGlobal>
@@ -17,11 +16,16 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/modules/app'
 import { ConfigGlobal } from '@/components/ConfigGlobal'
 import { useDesign } from '@/hooks/web/useDesign'
+import { useRouterMapS } from '@/store/modules/routes'
+import { constantRouterMap } from './router'
+
 const appStore = useAppStore()
 const greyMode = computed(() => appStore.getGreyMode)
 const { getPrefixCls } = useDesign()
-
 const prefixCls = getPrefixCls('app')
+// 插入
+const routesStore = useRouterMapS()
+routesStore.setConstantRouterMapS(constantRouterMap)
 </script>
 <style lang="less" scoped></style>
 

@@ -2,14 +2,12 @@
 import { computed, defineComponent, unref, PropType } from 'vue'
 import { ElMenu, ElScrollbar } from 'element-plus'
 import { useAppStore } from '@/store/modules/app'
-// import { usePermissionStore } from '@/store/modules/permission'
+import { usePermissionStore } from '@/store/modules/permission'
 import { useRenderMenuItem } from './components/useRenderMenuItem'
 import { useRouter } from 'vue-router'
 import { isUrl } from '@/utils/is'
 import { useDesign } from '@/hooks/web/useDesign'
 import { LayoutType } from '@/types/layout'
-// const a = 'proname1'
-import { constantRouterMap } from '@/pages/proname1/router'
 
 const { getPrefixCls } = useDesign()
 
@@ -30,7 +28,7 @@ export default defineComponent({
 
     const { push, currentRoute } = useRouter()
 
-    // const permissionStore = usePermissionStore()
+    const permissionStore = usePermissionStore()
 
     const menuMode = computed((): 'vertical' | 'horizontal' => {
       // 竖
@@ -42,11 +40,12 @@ export default defineComponent({
         return 'horizontal'
       }
     })
+    console.log(permissionStore.getRouters)
 
-    // const routers = computed(() =>
-    //   unref(layout) === 'cutMenu' ? permissionStore.getMenuTabRouters : permissionStore.getRouters
-    // )
-    const routers = constantRouterMap
+    const routers = computed(() =>
+      unref(layout) === 'cutMenu' ? permissionStore.getMenuTabRouters : permissionStore.getRouters
+    )
+    // const routers = constantRouterMap
 
     const collapse = computed(() => appStore.getCollapse)
 

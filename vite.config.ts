@@ -22,7 +22,7 @@ if (npm_config_project) {
   filterProjects = project.filter((ele) => {
     return ele.chunk.toLowerCase() === npm_config_project.toLowerCase()
   })
-  console.log(`--------单独构建：${filterProjects[0]['chunkName']}--------`)
+  console.log(`--------单独构建：${filterProjects[0]['chunk']}：${filterProjects[0]['chunkName']}--------`)
 } else {
   console.log('--------全部构建--------')
   filterProjects = project
@@ -50,7 +50,7 @@ const multiBuild = (p) => {
   return buildOutputConfigs
 }
 
-const rootUrl = filterProjects.length > 1 ? './src' : `./src/pages/${filterProjects[0]['chunk']}`
+// const rootUrl = filterProjects.length > 1 ? './src' : `./src/pages/${filterProjects[0]['chunk']}`
 
 function pathResolve(dir: string) {
   return resolve(root, '.', dir)
@@ -76,7 +76,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         output: multiBuild(filterProjects)
       }
     },
-    // base: env.VITE_BASE_PATH,
     plugins: [
       Vue(),
       VueJsx(),
@@ -142,7 +141,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       proxy: {
         // 选项写法
         '/api': {
-          target: 'http://127.0.0.1:8080',
+          target: env.VITE_API_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }

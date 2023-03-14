@@ -14,7 +14,7 @@
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
     "preview": "vite preview",
     "analysis": "windicss-analysis",
-    "new:page": "node ./scripts/index.mjs"
+    "new": "node ./scripts/index.mjs"
   },
   "dependencies": {
     "@iconify/iconify": "^3.0.1",

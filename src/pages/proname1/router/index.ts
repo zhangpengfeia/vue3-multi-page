@@ -13,36 +13,45 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
   {
     path: '/',
     component: Layout,
-    redirect: '/del/index',
+    redirect: '/home/index',
     name: 'Root',
     meta: {
       hidden: true
     }
   },
-  // 登录
+  // 首页
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/Login/login.vue'),
-    meta: {
-      hidden: true,
-      title: '登录',
-      noTagsView: true
-    }
-  },
-  {
-    path: '/del',
+    path: '/home',
     component: Layout,
-    redirect: '/del/index',
-    name: 'del',
+    redirect: '/home/index',
+    name: 'Home',
     meta: {},
     children: [
       {
         path: 'index',
-        component: () => import('../views/del/del.vue'),
-        name: 'delDemo',
+        component: () => import('../views/Home/home.vue'),
+        name: 'home',
         meta: {
-          title: 'del测试',
+          title: '主页',
+          icon: 'cib:telegram-plane'
+        }
+      }
+    ]
+  },
+  // 测试
+  {
+    path: '/test',
+    component: Layout,
+    redirect: '/test/index',
+    name: 'Test',
+    meta: {},
+    children: [
+      {
+        path: 'index',
+        component: () => import('../views/Test/test.vue'),
+        name: 'Test',
+        meta: {
+          title: '测试',
           icon: 'cib:telegram-plane'
         }
       }
@@ -80,7 +89,6 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
       }
     ]
   }
-  // 首页
 ]
 
 export const asyncRouterMap: AppRouteRecordRaw[] = []

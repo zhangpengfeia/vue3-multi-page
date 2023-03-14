@@ -1,4 +1,3 @@
-import router from '@/pages/proname1/router'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { getRawRoute } from '@/utils/routerHelper'
 import { defineStore } from 'pinia'
@@ -71,11 +70,11 @@ export const useTagsViewStore = defineStore('tagsView', {
     },
     // 删除缓存
     delCachedView() {
-      const route = router.currentRoute.value
-      const index = findIndex<string>(this.getCachedViews, (v) => v === route.name)
-      if (index > -1) {
-        this.cachedViews.delete(this.getCachedViews[index])
-      }
+      // const route = router.currentRoute.value
+      // const index = findIndex<string>(this.getCachedViews, (v) => v === route.name)
+      // if (index > -1) {
+      //   this.cachedViews.delete(this.getCachedViews[index])
+      // }
     },
     // 删除所有缓存和tag
     delAllViews() {
