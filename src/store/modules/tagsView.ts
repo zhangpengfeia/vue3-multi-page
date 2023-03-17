@@ -69,12 +69,11 @@ export const useTagsViewStore = defineStore('tagsView', {
       }
     },
     // 删除缓存
-    delCachedView() {
-      // const route = router.currentRoute.value
-      // const index = findIndex<string>(this.getCachedViews, (v) => v === route.name)
-      // if (index > -1) {
-      //   this.cachedViews.delete(this.getCachedViews[index])
-      // }
+    delCachedView(view: RouteLocationNormalizedLoaded) {
+      const index = findIndex<string>(this.getCachedViews, (v) => v === view.name)
+      if (index > -1) {
+        this.cachedViews.delete(this.getCachedViews[index])
+      }
     },
     // 删除所有缓存和tag
     delAllViews() {

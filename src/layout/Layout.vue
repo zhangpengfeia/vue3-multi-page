@@ -1,5 +1,5 @@
 <script lang="tsx">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, unref } from 'vue'
 import { useAppStore } from '@/store/modules/app'
 // import { Backtop } from '@/components/Backtop'
 // import { Setting } from '@/components/Setting'
@@ -24,9 +24,28 @@ const handleClickOutside = () => {
   appStore.setCollapse(true)
 }
 
+// const renderLayout = () => {
+//   const { renderClassic } = useRenderLayout()
+//   return renderClassic()
+// }
+
 const renderLayout = () => {
-  const { renderClassic } = useRenderLayout()
-  return renderClassic()
+  switch (unref(layout)) {
+    case 'classic':
+      const { renderClassic } = useRenderLayout()
+      return renderClassic()
+    case 'topLeft':
+      const { renderTopLeft } = useRenderLayout()
+      return renderTopLeft()
+    case 'top':
+      const { renderTop } = useRenderLayout()
+      return renderTop()
+    case 'cutMenu':
+      const { renderCutMenu } = useRenderLayout()
+      return renderCutMenu()
+    default:
+      break
+  }
 }
 
 export default defineComponent({
@@ -42,6 +61,7 @@ export default defineComponent({
         ) : undefined}
 
         {renderLayout()}
+        {/* <Setting></Setting> */}
       </section>
     )
   }

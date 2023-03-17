@@ -1,1 +1,10 @@
-[{"chunk":"proname1","chunkName":"项目1"},{"chunk":"proname2","chunkName":"项目2"},{"chunk":"proname3","chunkName":"项目3"}]
+[
+    {
+        "chunk": "proname1",
+        "chunkName": "项目1"
+    },
+    {
+        "chunk": "proname2",
+        "chunkName": "项目2"
+    }
+]

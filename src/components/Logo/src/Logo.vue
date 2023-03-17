@@ -12,7 +12,6 @@ const appStore = useAppStore()
 const show = ref(true)
 
 const title = computed(() => appStore.getTitle)
-console.log(import.meta.env)
 
 const layout = computed(() => appStore.getLayout)
 

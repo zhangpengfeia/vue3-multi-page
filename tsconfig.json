@@ -34,12 +34,14 @@
     ],
     "typeRoots": [
       "./node_modules/@types/",
-      "./types"
+      "./types",
+      "./enums"
     ]
   },
   "include": [
     "src/**/*",
     "types/**/*.d.ts",
+    "enums/**/*.d.ts",
     "mock/**/*.ts"
   ],
   "exclude": [

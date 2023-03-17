@@ -36,3 +36,18 @@ export const findIndex = <T = Recordable>(ary: Array<T>, fn: Fn): number => {
   })
   return index
 }
+
+export const setCssVar = (prop: string, val: any, dom = document.documentElement) => {
+  dom.style.setProperty(prop, val)
+}
+/**
+ * @param str 需要转下划线的驼峰字符串
+ * @returns 字符串下划线
+ */
+export const humpToUnderline = (str: string): string => {
+  return str.replace(/([A-Z])/g, '-$1').toLowerCase()
+}
+
+export const trim = (str: string) => {
+  return str.replace(/(^\s*)|(\s*$)/g, '')
+}

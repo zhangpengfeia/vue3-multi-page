@@ -12,7 +12,7 @@ import axios from 'axios'
 import { config } from './config'
 
 const { base_url } = config
-console.log(import.meta.env.VITE_API_BASEPATH)
+// console.log(import.meta.env.VITE_API_BASEPATH)
 
 export const PATH_URL = base_url[import.meta.env.VITE_API_BASEPATH]
 

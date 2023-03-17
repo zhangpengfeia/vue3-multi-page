@@ -11,7 +11,6 @@ import { config } from './config'
 
 const request = (options: any) => {
   const { url, method, headersType, data } = options
-  console.log(options)
   return service({
     url,
     method,

@@ -43,23 +43,23 @@ export const usePermissionStore = defineStore('permission', {
   actions: {
     generateRoutes(
       type: 'admin' | 'test' | 'none',
-      routers?: AppCustomRouteRecordRaw[] | string[]
+      roles?: AppCustomRouteRecordRaw[] | string[]
     ): Promise<unknown> {
       return new Promise<void>((resolve) => {
         const routesStore = useRouterMapS()
-        const s = routesStore.getConstantRouterMapS
-        const as = routesStore.getAsyncRouterMapS
+        const constantRouterMap = routesStore.getConstantRouterMapS
+        const asyncRouterMap = routesStore.getAsyncRouterMapS
 
         let routerMap: AppRouteRecordRaw[] = []
         if (type === 'admin') {
           // 模拟后端过滤菜单
-          routerMap = generateRoutesFn2(routers as AppCustomRouteRecordRaw[])
+          routerMap = generateRoutesFn2(roles as AppCustomRouteRecordRaw[])
         } else if (type === 'test') {
           // 模拟前端过滤菜单
-          routerMap = generateRoutesFn1(cloneDeep(as), routers as string[])
+          routerMap = generateRoutesFn1(cloneDeep(asyncRouterMap), roles as string[])
         } else {
           // 直接读取静态路由表
-          routerMap = cloneDeep(as)
+          routerMap = cloneDeep(asyncRouterMap)
         }
         // 动态路由，404一定要放到最后面
         this.addRouters = routerMap.concat([
@@ -74,9 +74,7 @@ export const usePermissionStore = defineStore('permission', {
           }
         ])
         // 渲染菜单的所有路由
-        console.log(s)
-        this.routers = cloneDeep(s).concat(routerMap)
-        // this.routers = cloneDeep(constantRouterMap)
+        this.routers = cloneDeep(constantRouterMap).concat(routerMap)
         resolve()
       })
     },

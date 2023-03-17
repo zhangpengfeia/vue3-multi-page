@@ -6,7 +6,8 @@
  * @LastEditTime: 2023-02-26 10:14:56
 -->
 <template>
-  <ConfigGlobal>
+  <ConfigGlobal :size="currentSize">
+    不使用layout布局
     <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''" />
   </ConfigGlobal>
 </template>
@@ -17,7 +18,7 @@ import { useAppStore } from '@/store/modules/app'
 import { ConfigGlobal } from '@/components/ConfigGlobal'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useRouterMapS } from '@/store/modules/routes'
-import { constantRouterMap } from './router'
+import { constantRouterMap, asyncRouterMap } from './router'
 
 const appStore = useAppStore()
 const greyMode = computed(() => appStore.getGreyMode)
@@ -26,6 +27,9 @@ const prefixCls = getPrefixCls('app')
 // 插入
 const routesStore = useRouterMapS()
 routesStore.setConstantRouterMapS(constantRouterMap)
+routesStore.setAsyncRouterMapS(asyncRouterMap)
+
+const currentSize = computed(() => appStore.getCurrentSize)
 </script>
 <style lang="less" scoped></style>
 

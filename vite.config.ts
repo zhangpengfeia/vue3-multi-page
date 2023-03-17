@@ -11,10 +11,28 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import { createStyleImportPlugin, ElementPlusResolve } from 'vite-plugin-style-import'
+import fs from 'fs-extra'
 
 // https://vitejs.dev/config/
-const root = process.cwd()
+function pathResolve(dir: string) {
+  return resolve(root, '.', dir)
+}
 
+/**
+ * 删除指定目录下所有子文件
+ * @param {*} path
+ */
+function emptyDirectory(directory) {
+  fs.emptyDir(directory, (err) => {
+    if (err) {
+      console.error(`Error while emptying the directory ${directory}: ${err}`);
+    } else {
+      console.log(`Directory ${directory} is emptied`);
+    }
+  });
+}
+
+const root = process.cwd()
 const project = require('./scripts/multiPages.json')
 const npm_config_project = process.env.npm_config_pro
 let filterProjects = []
@@ -40,6 +58,11 @@ const multiBuild = (p) => {
   const buildOutputConfigs: any = []
   p.forEach((ele) => {
     // 配置多出口打包
+    // const pageExists = fs.existsSync(pathResolve(`dist/${ele.chunk}`))
+    // if (pageExists) {
+    //   emptyDirectory(pathResolve(`dist/${ele.chunk}`))
+    //   return
+    // }
     buildOutputConfigs.push({
       dir: `dist/${ele.chunk}/`,
       assetFileNames: '[ext]/[name]-[hash].[ext]',
@@ -52,9 +75,7 @@ const multiBuild = (p) => {
 
 // const rootUrl = filterProjects.length > 1 ? './src' : `./src/pages/${filterProjects[0]['chunk']}`
 
-function pathResolve(dir: string) {
-  return resolve(root, '.', dir)
-}
+
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   let env = {} as any
@@ -69,6 +90,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     base: './',
     envDir: '../../../',
     build: {
+      // outDir: `./dist/${filterProjects[0]['chunk']}`,
+      emptyOutDir: true,
       rollupOptions: {
         //配置多页应用程序入口文件
         input: multiPages(filterProjects),
@@ -81,7 +104,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       VueJsx(),
       WindiCSS({
         scan: {
-          dirs: ['../../.'], // 识别以index.html为开始的上一级上一级目录
+          dirs: ['../../'], // 识别以index.html为开始的上一级上一级目录
           fileExtensions: ['vue', 'js', 'ts', 'tsx'] // 同时启用扫描vue/js/ts
         }
       }),
@@ -111,7 +134,19 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       DefineOptions(),
       ViteEjsPlugin({
         title: env.VITE_APP_TITLE
-      })
+      }),
+      {
+        name: 'delete-dist',
+        async buildStart() {
+          // remove the dist folder before each build
+          // await fs.promises.rmdir('./dist', { recursive: true });
+          const pageExists = fs.existsSync(pathResolve(`dist`))
+          if (pageExists && isBuild) {
+            emptyDirectory(pathResolve('./dist'))
+            console.log('清空dist');
+          }
+        }
+      }
     ],
 
     css: {

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { store } from '../index'
-// import { setCssVar, humpToUnderline } from '@/utils'
+import { setCssVar, humpToUnderline } from '@/utils'
 import { ElMessage } from 'element-plus'
 import { ElementPlusSize } from '@/types/elementPlus'
 import { useCache } from '@/hooks/web/useCache'
@@ -60,7 +60,7 @@ export const useAppStore = defineStore('app', {
       fixedHeader: true, // 固定toolheader
       footer: true, // 显示页脚
       greyMode: false, // 是否开始灰色模式，用于特殊悼念日
-      dynamicRouter: wsCache.get('dynamicRouter') || false, // 是否动态路由
+      dynamicRouter: wsCache.get('dynamicRouter') || true, // 是否动态路由
       fixedMenu: wsCache.get('fixedMenu') || false, // 是否固定菜单
 
       layout: wsCache.get('layout') || 'classic', // layout布局
@@ -68,25 +68,25 @@ export const useAppStore = defineStore('app', {
       currentSize: wsCache.get('default') || 'default', // 组件尺寸
       theme: wsCache.get('theme') || {
         // 主题色
-        elColorPrimary: '#409eff',
+        elColorPrimary: '#d70110',
         // 左侧菜单边框颜色
         leftMenuBorderColor: 'inherit',
         // 左侧菜单背景颜色
-        leftMenuBgColor: '#001529',
+        leftMenuBgColor: '#fff',
         // 左侧菜单浅色背景颜色
-        leftMenuBgLightColor: '#0f2438',
+        leftMenuBgLightColor: '#fff',
         // 左侧菜单选中背景颜色
-        leftMenuBgActiveColor: 'var(--el-color-primary)',
+        leftMenuBgActiveColor: 'RGBA(215,1,16,0.1)',
         // 左侧菜单收起选中背景颜色
         leftMenuCollapseBgActiveColor: 'var(--el-color-primary)',
         // 左侧菜单字体颜色
-        leftMenuTextColor: '#bfcbd9',
+        leftMenuTextColor: '#333',
         // 左侧菜单选中字体颜色
-        leftMenuTextActiveColor: '#fff',
+        leftMenuTextActiveColor: 'var(--el-color-primary)',
         // logo字体颜色
-        logoTitleTextColor: '#fff',
+        logoTitleTextColor: 'inherit',
         // logo边框颜色
-        logoBorderColor: 'inherit',
+        logoBorderColor: '#eee',
         // 头部背景颜色
         topHeaderBgColor: '#fff',
         // 头部字体颜色
@@ -260,9 +260,9 @@ export const useAppStore = defineStore('app', {
       wsCache.set('theme', this.theme)
     },
     setCssVarTheme() {
-      // for (const key in this.theme) {
-      //   // setCssVar(`--${humpToUnderline(key)}`, this.theme[key])
-      // }
+      for (const key in this.theme) {
+        setCssVar(`--${humpToUnderline(key)}`, this.theme[key])
+      }
     },
     setFooter(footer: boolean) {
       this.footer = footer

@@ -32,6 +32,9 @@ import '@/plugins/svgIcon';
 
 import './permission'
 
+// 自定义指令
+import { setupGlobDirectives } from '@/directives';
+
 // 创建实例
 const setupAll = async () => {
   const app = createApp(App);
@@ -39,6 +42,8 @@ const setupAll = async () => {
   setupStore(app);
 
   setupElementPlus(app);
+
+  setupGlobDirectives(app);
 
   setupRouter(app);
 

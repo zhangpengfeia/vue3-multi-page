@@ -45,6 +45,7 @@ declare module 'vue-router' {
     noTagsView?: boolean
     followAuth?: string
     canTo?: boolean
+    roles?: string[]
   }
 }
 

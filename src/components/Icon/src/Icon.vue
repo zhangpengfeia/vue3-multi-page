@@ -1,5 +1,5 @@
 <!--
- * @Description: 
+ * @Description:
  * @Version: 2.0
  * @Author: zhangpf1
  * @Date: 2023-02-25 20:34:54
@@ -33,7 +33,6 @@ const isLocal = computed(() => props.icon.startsWith('svg-icon:'))
 const symbolId = computed(() => {
   return unref(isLocal) ? `#icon-${props.icon.split('svg-icon:')[1]}` : props.icon
 })
-
 const getIconifyStyle = computed(() => {
   const { color, size } = props
   return {
@@ -78,7 +77,6 @@ watch(
     <svg v-if="isLocal" aria-hidden="true">
       <use :xlink:href="symbolId" />
     </svg>
-
     <span v-else ref="elRef" :class="$attrs.class" :style="getIconifyStyle">
       <span class="iconify" :data-icon="symbolId"></span>
     </span>
