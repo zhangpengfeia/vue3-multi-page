@@ -7,6 +7,7 @@ import { useAppStore } from '@/store/modules/app'
 import { setCssVar } from '@/utils'
 import { useDesign } from '@/hooks/web/useDesign'
 import { ElementPlusSize } from '@/types/elementPlus'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 const { variables } = useDesign()
 
@@ -46,7 +47,12 @@ watch(
 </script>
 
 <template>
-  <ElConfigProvider :namespace="variables.elNamespace" :message="{ max: 1 }" :size="size">
+  <ElConfigProvider
+    :namespace="variables.elNamespace"
+    :message="{ max: 1 }"
+    :size="size"
+    :locale="zhCn"
+  >
     <slot></slot>
   </ElConfigProvider>
 </template>

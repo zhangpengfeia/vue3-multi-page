@@ -101,7 +101,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     redirect: '/test/index',
     name: 'Test',
     meta: {
-      roles: ['eee']
+      roles: ['admin']
     },
     children: [
       {

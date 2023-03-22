@@ -4,6 +4,7 @@ import { Menu } from '@/components/Menu'
 import { ElScrollbar } from 'element-plus'
 import { useDesign } from '@/hooks/web/useDesign'
 import { Logo } from '@/components/Logo'
+import { TabMenu } from '@/components/TabMenu'
 import AppView from './AppView.vue'
 import ToolHeader from './ToolHeader.vue'
 import { TagsView } from '@/components/TagsView'
@@ -208,7 +209,7 @@ export const useRenderLayout = () => {
           <ToolHeader class="flex-1"></ToolHeader>
         </div>
         <div class="absolute top-[var(--logo-height)] left-0 w-full h-[calc(100%-var(--logo-height))] flex">
-          {/* <TabMenu></TabMenu> */}
+          <TabMenu></TabMenu>
           <div
             class={[
               `${prefixCls}-content`,

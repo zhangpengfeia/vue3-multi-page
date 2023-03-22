@@ -6,14 +6,14 @@ import { Authority } from '@/components/Authority'
 import { ElButton, ElDivider } from 'element-plus'
 import { usePermission } from '@/hooks/web/usePermission'
 import { Icon } from '@/components/Icon'
-// import { RoleEnum } from '@/enums/roleEnum'
+import { RoleEnum } from '@/enums/roleEnum'
 
-enum RoleEnum {
-  // super admin
-  ADMIN = 'admin',
-  // tester
-  TEST = 'test'
-}
+// enum RoleEnum {
+//   // super admin
+//   ADMIN = 'admin',
+//   // tester
+//   TEST = 'test'
+// }
 
 const userStore = useUserStore()
 

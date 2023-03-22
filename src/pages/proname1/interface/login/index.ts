@@ -14,6 +14,6 @@ interface IResponse<T = any> {
   message: String
 }
 
-export const loginApi = (data: UserLoginType): Promise<IResponse<UserType>> => {
+export const loginApi = (data: UserLoginType): Promise<IResponse<any>> => {
   return request.post({ url: '/employee/login', data })
 }

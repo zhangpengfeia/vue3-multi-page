@@ -42,8 +42,8 @@ if (npm_config_project) {
   })
   console.log(`--------单独构建：${filterProjects[0]['chunk']}：${filterProjects[0]['chunkName']}--------`)
 } else {
-  console.log('--------全部构建--------')
-  filterProjects = project
+  console.log('--------暂时不支持全部构建，请单独构建--------')
+  throw new Error('暂时不支持全部构建，请单独构建')
 }
 
 const multiPages = (p) => {
@@ -64,7 +64,8 @@ const multiBuild = (p) => {
     //   return
     // }
     buildOutputConfigs.push({
-      dir: `dist/${ele.chunk}/`,
+      dir: `dist/`,
+      // dir: `dist/${ele.chunk}/`,
       assetFileNames: '[ext]/[name]-[hash].[ext]',
       chunkFileNames: 'js/[name]-[hash].js',
       entryFileNames: 'js/[name]-[hash].js'
@@ -74,7 +75,6 @@ const multiBuild = (p) => {
 }
 
 // const rootUrl = filterProjects.length > 1 ? './src' : `./src/pages/${filterProjects[0]['chunk']}`
-
 
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {

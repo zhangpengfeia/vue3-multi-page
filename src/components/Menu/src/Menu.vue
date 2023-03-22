@@ -40,7 +40,6 @@ export default defineComponent({
         return 'horizontal'
       }
     })
-    console.log(permissionStore.getRouters)
 
     const routers = computed(() =>
       unref(layout) === 'cutMenu' ? permissionStore.getMenuTabRouters : permissionStore.getRouters
