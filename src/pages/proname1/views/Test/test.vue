@@ -65,7 +65,7 @@ const actionFn = (data: TableSlotDefault) => {
 const delData = async (row: TableData | null, multiple: boolean) => {}
 
 const action = (row: TableData, type: string) => {
-  push(`/example/example-${type}?id=${row.id}`)
+  push(`/test/example-${type}?id=${row.id}`)
 }
 </script>
 

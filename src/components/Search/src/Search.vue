@@ -7,6 +7,7 @@ import { useForm } from '@/hooks/web/useForm'
 import { findIndex } from '@/utils'
 import { cloneDeep } from 'lodash-es'
 import { FormSchema } from '@/types/form'
+import { Icon } from '@/components/Icon'
 
 const props = defineProps({
   // 生成Form的布局结构数组
@@ -72,6 +73,8 @@ const search = async () => {
     if (isValid) {
       const { getFormData } = methods
       const model = await getFormData()
+      console.log(model)
+
       emit('search', model)
     }
   })

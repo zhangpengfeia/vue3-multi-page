@@ -112,6 +112,19 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
           title: '测试',
           icon: 'cib:telegram-plane'
         }
+      },
+      {
+        path: 'example-edit',
+        component: () => import('../views/Test/ExampleEdit.vue'),
+        name: 'ExampleEdit',
+        meta: {
+          title: '新增',
+          noTagsView: true,
+          noCache: true,
+          hidden: true,
+          canTo: true,
+          activeMenu: '/test/example-page'
+        }
       }
     ]
   },

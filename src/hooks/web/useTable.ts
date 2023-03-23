@@ -124,6 +124,8 @@ export const useTable = <T = any>(config?: UseTableConfig<T>) => {
 
   const methods = {
     getList: async () => {
+      console.log('调用表格接口')
+
       tableObject.loading = true
       // const res = await config?.getListApi(unref(paramsObj)).finally(() => {
       // tableObject.loading = false
