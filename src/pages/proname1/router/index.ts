@@ -142,7 +142,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     children: [
       {
         path: '404-demo',
-        component: () => import('../views/Error/404.vue'),
+        component: () => import('../views/Desc/Desc.vue'),
         name: '404Demo',
         meta: {
           title: '菜单2'
